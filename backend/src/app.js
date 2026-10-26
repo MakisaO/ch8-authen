@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const menuRoutes = require('./routes/menuRoutes');
 const typeRoutes = require('./routes/typeRoutes');
+const { router: authenRoutes } = require('./routes/authenRoutes');
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/menu', menuRoutes);
 app.use('/api/type', typeRoutes);
+app.use('/api/authen', authenRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');

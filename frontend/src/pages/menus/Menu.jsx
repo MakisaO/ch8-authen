@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import { menuApi } from "../../services/menuApi";
 import { typeApi } from "../../services/typeApi";
 import MenuList from "./MenuList";
@@ -8,6 +9,7 @@ function Menu() {
   const [menuList, setMenuList] = useState([]);
   const [typeList, setTypeList] = useState([]);
   const [editingItem, setEditingItem] = useState(null);
+  const { user } = useOutletContext();
 
   const fetchMenus = async () => {
     try {
@@ -69,6 +71,7 @@ function Menu() {
         menuList={menuList}
         deleteMenu={deleteMenu}
         startEdit={(item) => setEditingItem(item)}
+        role={user?.role} // ส่ง role ไปเช็คเงื่อนไข
       />
       <MenuForm
         addMenu={addMenu}
@@ -76,6 +79,7 @@ function Menu() {
         editingItem={editingItem}
         cancelEdit={() => setEditingItem(null)}
         typeList={typeList}
+        role={user?.role} // ส่ง role ไปเช็คเงื่อนไข
       />
     </div>
   );

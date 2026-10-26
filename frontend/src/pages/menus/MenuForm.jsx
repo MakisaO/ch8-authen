@@ -6,7 +6,11 @@ const MenuForm = ({
   editingItem,
   cancelEdit,
   typeList,
+  role,
 }) => {
+  if (role !== "admin") {
+    return null;
+  }
   const [inputs, setInputs] = useState({
     name: "",
     price: "",
