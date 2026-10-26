@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model type {
+  typeId Int    @id @default(autoincrement())
+  name   String @db.VarChar(30)
+  menu   menu[]
+}
+
+model menu {
+  menuId       Int     @id @default(autoincrement())
+  name         String  @db.VarChar(40)
+  price        Float   @db.Float
+  isBestSeller Boolean
+  typeId       Int
+  type         type    @relation(fields: [typeId], references: [typeId], onDelete: Cascade, map: "menu_ibfk_1")
+
+  @@index([typeId], map: "typeId")
+}
+
+model user {
+  userId   Int        @id @default(autoincrement())
+  userName String     @db.VarChar(50)
+  email    String     @db.VarChar(50)
+  password String     @db.VarChar(100)
+  role     user_role? @default(user)
+}
+
+enum user_role {
+  admin
+  user
+}

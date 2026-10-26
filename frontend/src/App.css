@@ -1,0 +1,57 @@
+.menu-container {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.mode-toggle {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mode-toggle button {
+  margin-left: 8px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.food-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.food-item {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.del-btn {
+  margin-left: 8px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.food-form h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.form-group {
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.add-btn {
+  margin-top: 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+}
